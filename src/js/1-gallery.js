@@ -1,3 +1,6 @@
+import SimpleLightbox from "simplelightbox";
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -83,11 +86,14 @@ const createGallery = (images) => {
 
 galleryBox.innerHTML = createGallery(images);
 
-galleryBox.addEventListener("click", (event) => {
+
+const lightBox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
+
+/* galleryBox.addEventListener("click", (event) => {
   event.preventDefault();
   if (event.target.classList.contains("gallery-image")) {
     const originalImageURL = event.target.dataset.source;
     const lightBox = basicLightbox.create(`<img src="${originalImageURL}" width="1112" height="640">`);
     lightBox.show();
   };
-});
+}); */
